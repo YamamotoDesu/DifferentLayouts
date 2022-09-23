@@ -43,7 +43,7 @@ import kotlinx.android.synthetic.main.fragment_all.*
 
 class AllFragment : Fragment() {
 
-  private val adapter = CreatureAdapter(CreatureStore.getCreatures().toMutableList())
+  private val adapter = CreatureWithFoodAdapter(CreatureStore.getCreatures().toMutableList())
 
   companion object {
     fun newInstance(): AllFragment {
