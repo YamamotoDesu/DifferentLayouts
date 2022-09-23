@@ -500,3 +500,69 @@ list_item_creature_card.xml
 </androidx.cardview.widget.CardView>
 ```
 
+-------
+
+## Switch Between Span Sizes
+
+menu_all.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_span_1"
+        android:orderInCategory="100"
+        android:title="@string/menu_span_1"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_span_2"
+        android:orderInCategory="100"
+        android:title="@string/menu_span_2"
+        app:showAsAction="never" />
+
+</menu>
+```
+
+AllFragment
+```kt
+class AllFragment : Fragment() {
+
+  private val adapter = CreatureCardAdapter(CreatureStore.getCreatures().toMutableList())
+  private lateinit var layoutManager: StaggeredGridLayoutManager
+  
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
+    creatureRecyclerView.layoutManager = layoutManager
+    creatureRecyclerView.adapter = adapter
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    val id = item.itemId
+    when (id) {
+      R.id.action_span_1 -> {
+        showListView()
+        return true
+      }
+      R.id.action_span_2 -> {
+        showGridView()
+        return true
+      }
+    }
+
+    return super.onOptionsItemSelected(item)
+  }
+
+  private fun showListView() {
+    layoutManager.spanCount = 1
+  }
+
+  private fun showGridView() {
+    layoutManager.spanCount = 2
+  }
+  
+```
