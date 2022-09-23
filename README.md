@@ -503,6 +503,7 @@ list_item_creature_card.xml
 -------
 
 ## Switch Between Span Sizes
+<img width="300" src="https://user-images.githubusercontent.com/47273077/191921700-34538503-8c49-43f3-a012-92a0f61a03ee.gif">
 
 menu_all.xml
 ```xml
