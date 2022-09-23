@@ -228,7 +228,7 @@ class CreatureWithFoodAdapter(private val creatures: MutableList<Creature>): Rec
 }
 ```
 
-### LinearSnapHelperを使う
+### Use a LinearSnapHelper
 <img width="300" src="https://user-images.githubusercontent.com/47273077/191894128-0a3d1a44-2f14-403b-b64b-b5fb928b113f.gif">
 
 ```kt
@@ -241,7 +241,7 @@ class CreatureWithFoodAdapter(private val creatures: MutableList<Creature>): Rec
     }
 ```
 
-### LinearSnapHelperを使わない場合
+### Not Use a LinearSnapHelper
 <img width="300" src="https://user-images.githubusercontent.com/47273077/191893914-14afb72a-1daa-49f7-b1b5-7e589cd7e999.gif">
 
 
