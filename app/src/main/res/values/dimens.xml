@@ -10,4 +10,5 @@
   <dimen name="detail_planet_text_size">18sp</dimen>
   <dimen name="list_item_creature_height">100dp</dimen>
   <dimen name="creature_name_text_size">20sp</dimen>
+  <dimen name="list_item_food_height">@dimen/list_item_creature_height</dimen>
 </resources>
