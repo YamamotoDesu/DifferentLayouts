@@ -369,5 +369,28 @@ class CreatureCardAdapter(private val creatures: MutableList<Creature>): Recycle
 }
 ```
 
+-----
+
+## Use Custom Span Size
+
+<img width="300" alt="スクリーンショット 2022-09-23 15 55 05" src="https://user-images.githubusercontent.com/47273077/191906681-83142c46-5e28-4f53-8262-5228b75dd3fe.png">
+
+AllFragment
+```kt
+
+class AllFragment : Fragment() {
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    val layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
+    layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+      override fun getSpanSize(position: Int): Int {
+        return if ((position + 1) % 3 == 0) 2 else 1
+      }
+    }
+    creatureRecyclerView.layoutManager = layoutManager
+    creatureRecyclerView.adapter = adapter
+  }
+```
 
 
