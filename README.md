@@ -373,7 +373,7 @@ class CreatureCardAdapter(private val creatures: MutableList<Creature>): Recycle
 
 ## Use Custom Span Size
 
-<img width="583" alt="スクリーンショット 2022-09-23 15 55 05" src="https://user-images.githubusercontent.com/47273077/191906681-83142c46-5e28-4f53-8262-5228b75dd3fe.png">
+<img width="300" alt="スクリーンショット 2022-09-23 15 55 05" src="https://user-images.githubusercontent.com/47273077/191906681-83142c46-5e28-4f53-8262-5228b75dd3fe.png">
 
 AllFragment
 ```kt
