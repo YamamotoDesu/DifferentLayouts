@@ -37,6 +37,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.raywenderlich.android.creatures.R
 import com.raywenderlich.android.creatures.model.CreatureStore
 import kotlinx.android.synthetic.main.fragment_all.*
@@ -58,12 +59,7 @@ class AllFragment : Fragment() {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    val layoutManager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
-    layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-      override fun getSpanSize(position: Int): Int {
-        return if ((position + 1) % 7 == 0) 3 else 1
-      }
-    }
+    val layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
     creatureRecyclerView.layoutManager = layoutManager
     creatureRecyclerView.adapter = adapter
   }

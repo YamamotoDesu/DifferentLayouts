@@ -29,7 +29,7 @@ class CreatureCardAdapter(private val creatures: MutableList<Creature>): Recycle
             val context = itemView.context
             val imageResource = context.resources.getIdentifier(creature.uri, null, context.packageName)
             itemView.creatureImage.setImageResource(imageResource)
-            itemView.cardNickname.text = creature.nickname
+            itemView.cardFullName.text = creature.fullName
             setBackgroundColors(context, imageResource)
         }
 
@@ -47,9 +47,9 @@ class CreatureCardAdapter(private val creatures: MutableList<Creature>): Recycle
                 palette?.let {
                     val backgroundColor = it.getDominantColor(ContextCompat.getColor(context, R.color.colorPrimaryDark))
                     itemView.creatureCard.setBackgroundColor(backgroundColor)
-                    itemView.nicknameHolder.setBackgroundColor(backgroundColor)
+                    itemView.nameHolder.setBackgroundColor(backgroundColor)
                     val textColor = if (isColorDark(backgroundColor)) Color.WHITE else Color.BLACK
-                    itemView.cardNickname.setTextColor(textColor)
+                    itemView.cardFullName.setTextColor(textColor)
                 }
             }
         }
