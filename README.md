@@ -1,5 +1,8 @@
 # DifferentLayouts
 
+## Introduction
+<img width="475" src="https://user-images.githubusercontent.com/47273077/191889762-fc49defc-75c3-46fb-a47e-e94a02592f58.png">
+
 activity_creature.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
