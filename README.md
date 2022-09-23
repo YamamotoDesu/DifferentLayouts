@@ -419,3 +419,84 @@ class AllFragment : Fragment() {
 
 ```
 
+---
+
+## Use a StaggeredGridLayoutManager
+
+<img width="300" src="https://user-images.githubusercontent.com/47273077/191911220-8b2bdea5-3ae8-4406-b502-b038ed003ec7.png">
+
+AllFragment
+```kt
+class AllFragment : Fragment() {
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    val layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
+    creatureRecyclerView.layoutManager = layoutManager
+    creatureRecyclerView.adapter = adapter
+  }
+  
+```
+
+list_item_creature_card.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/creatureCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/padding_half"
+    card_view:cardCornerRadius="@dimen/card_corner_radius"
+    card_view:cardElevation="@dimen/card_elevation">
+
+    <LinearLayout
+        android:id="@+id/cardRipple"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:selectableItemBackground"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/creatureImage"
+            android:layout_width="@dimen/card_image_size"
+            android:layout_height="@dimen/card_image_size"
+            android:layout_gravity="center"
+            android:contentDescription="@string/content_description_creature_image"
+            android:scaleType="fitXY"
+            tools:srcCompat="@drawable/creature_cat_derp" />
+
+        <LinearLayout
+            android:id="@+id/nameHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:alpha="0.9"
+            android:background="@color/colorAccent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cardFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:maxLines="3"
+                android:padding="@dimen/padding_half"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/creature_card_text_size"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+```
+
