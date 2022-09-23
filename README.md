@@ -137,6 +137,8 @@ data class Food(val id: Int, val name: String, val image: String) {
 ------
 
 ## Nest a RecyclerView
+<img width="300" src="https://user-images.githubusercontent.com/47273077/191893708-87943d45-0755-4814-8383-eef85fcc5fe0.png">
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -225,3 +227,19 @@ class CreatureWithFoodAdapter(private val creatures: MutableList<Creature>): Rec
 
 }
 ```
+
+### LinearSnapHelperを使う
+<img width="300" src="https://user-images.githubusercontent.com/47273077/191894128-0a3d1a44-2f14-403b-b64b-b5fb928b113f.gif">
+
+```xml
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+//        return ViewHolder(parent.inflate(R.layout.list_item_creature_with_food))
+        val holder = ViewHolder(parent.inflate(R.layout.list_item_creature_with_food))
+        holder.itemView.foodRecyclerView.setRecycledViewPool(viewPool)
+        LinearSnapHelper().attachToRecyclerView(holder.itemView.foodRecyclerView)
+        return holder
+    }
+```
+
+### LinearSnapHelperを使わない場合
+<img width="300" src="https://user-images.githubusercontent.com/47273077/191893914-14afb72a-1daa-49f7-b1b5-7e589cd7e999.gif">
